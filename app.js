@@ -7,6 +7,17 @@ const logger = require("morgan");
 const indexRouter = require("./routes/index");
 
 const app = express();
+const cors = require("cors");
+
+// CORS Setup
+app.options("*", cors());
+app.use(
+  cors({
+    allowedHeaders: "*",
+    origin: "*",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  })
+);
 
 app.use(logger("dev"));
 app.use(express.json());
