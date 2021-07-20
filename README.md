@@ -14,7 +14,7 @@ Create a `.env` file using `.env.example` and set your Pinata API key and Pinata
 **Do not forget to do yarn install**
 
 - `yarn start` to start the service
-- `yarn debug` yo start the service in debug mode
+- `yarn debug` to start the service in debug mode
 
 ## Available Endpoints
 
