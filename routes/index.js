@@ -8,11 +8,15 @@ const pinata = pinataSDK(
 );
 
 router.post("/add-json", async (req, res) => {
-  const result = await pinata.pinJSONToIPFS(req.body, {
-    pinataMetadata: {
-      name: req?.body?.pinataMetadataName,
-    },
-  });
+  const options = req?.body?.pinataMetadataName
+    ? {
+        pinataMetadata: {
+          name: req?.body?.pinataMetadataName,
+        },
+      }
+    : undefined;
+
+  const result = await pinata.pinJSONToIPFS(req.body, options);
   res.json(result);
 });
 
